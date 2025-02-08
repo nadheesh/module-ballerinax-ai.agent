@@ -339,7 +339,7 @@ public isolated class AzureChatGptModel {
     # + return - Function to be called, chat response or an error in-case of failures
     public isolated function functionCall(ChatMessage[] messages, ChatCompletionFunctions[] functions, string? stop = ()) returns string|FunctionCall|LlmError {
         azure_chat:CreateChatCompletionResponse|error response =
-    self.llmClient->/deployments/[self.deploymentId]/chat/completions.post(self.apiVersion, {
+        self.llmClient->/deployments/[self.deploymentId]/chat/completions.post(self.apiVersion, {
             ...self.modelConfig,
             stop,
             messages,
